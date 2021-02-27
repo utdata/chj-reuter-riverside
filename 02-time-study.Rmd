@@ -1,0 +1,87 @@
+---
+title: "Riverside time studay"
+output: html_notebook
+---
+
+This workbook is a study of using [lubridate](https://lubridate.tidyverse.org/) to count testing cases by week. My initial testing based on a chapter from [R for Data Science](https://r4ds.had.co.nz/dates-and-times.html) had the counts by week ending on Sunday when I thought that was the beginning of the week. I think this is something about the ceiling_date. I was able to subtract 1 from that ceiling to give me the Saturday date. This checks that logic to make sure I'm not counting the wrong days.
+
+This is the way to formulate the count by week:
+
+`count(week = ceiling_date(lab_date, "week") - 1)`
+
+```{r setup, echo=T, results='hide', message=F, warning=F}
+library(tidyverse)
+library(lubridate)
+```
+
+
+## Import cleaned data
+
+```{r}
+riverside <- read_rds("data-processed/riverside.rds")
+```
+
+
+```{r}
+riverside %>% glimpse()
+```
+
+Building test data for feb 2020
+
+```{r}
+test_feb <- riverside %>% 
+  filter(month(lab_date) == 2)
+```
+
+View of Feb data
+
+```{r}
+test_feb
+```
+
+This shows counts by data at the beginning of the week.
+
+```{r}
+test_feb %>% 
+  count(week = floor_date(lab_date, "week"))
+```
+
+This shows the date of the end of the week. The `ceiling_date` for week is the Sunday of the next week, so I'm substracting one day to get the Saturday. At least that is how it is working for Feb.
+
+```{r}
+test_feb %>% 
+  count(week = ceiling_date(lab_date, "week")-1)
+```
+
+## March test
+
+```{r}
+test_mar_ps <- riverside %>% 
+  filter(
+    lab_date >= "2020-03-1",
+    lab_date <= "2020-03-15",
+    place == "PALM SPRINGS"
+  )
+```
+
+```{r}
+test_mar_ps
+```
+
+
+```{r}
+test_mar_ps %>% 
+  count(week = ceiling_date(lab_date, "week")-1)
+
+```
+
+tests the week enxing March 14.
+
+```{r}
+test_mar_ps %>% 
+  filter(
+    lab_date >= "2020-03-08",
+    lab_date <= "2020-03-14"
+  )
+```
+

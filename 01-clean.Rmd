@@ -1,0 +1,46 @@
+---
+title: "R Notebook"
+output: html_notebook
+---
+
+```{r}
+library(tidyverse)
+library(janitor)
+library(lubridate)
+```
+
+## Import
+
+```{r import}
+data <- read_csv(
+  "data-raw/Riverside_Covid_tests_zip.csv",
+  col_types = cols(ZIPCODE = col_character())
+  ) %>% 
+  clean_names()
+
+data %>% glimpse()
+```
+
+## Cleaning
+
+```{r clean}
+data_clean <- data %>% 
+  mutate(
+    lab_date = mdy(new_lab_date)
+  ) %>% 
+  rename(
+    place = name
+  ) %>% 
+  select(lab_date, place, zipcode, lab_result) %>% 
+  arrange(lab_date)
+
+data_clean %>% glimpse()
+```
+
+## Export
+
+```{r export}
+data_clean %>% 
+  write_rds("data-processed/riverside.rds")
+```
+
