@@ -1,6 +1,13 @@
 ---
 title: "Riverside analysis"
-output: html_notebook
+output:
+  html_document:
+    theme: flatly
+    toc: true
+    toc_depth: 3
+    toc_float: true
+    df_print: paged
+knit: (function(inputFile, encoding) { rmarkdown::render(inputFile, encoding = encoding, output_dir = "docs") })
 ---
 
 This notebook attempts to aggregate Riverside County, CA testing counts in a format that will work well the aggregations provided by San Diego Count, CA.

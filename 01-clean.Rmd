@@ -1,9 +1,16 @@
 ---
 title: "R Notebook"
-output: html_notebook
+output:
+  html_document:
+    theme: flatly
+    toc: true
+    toc_depth: 3
+    toc_float: true
+    df_print: paged
+knit: (function(inputFile, encoding) { rmarkdown::render(inputFile, encoding = encoding, output_dir = "docs") })
 ---
 
-```{r}
+```{r setup, echo=T, results='hide', message=F, warning=F}
 library(tidyverse)
 library(janitor)
 library(lubridate)
