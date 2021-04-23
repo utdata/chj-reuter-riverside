@@ -53,7 +53,7 @@ test_feb %>%
   count(week = floor_date(lab_date, "week"))
 ```
 
-This shows the date of the end of the week. The `ceiling_date` for week is the Sunday of the next week, so I'm substracting one day to get the Saturday. At least that is how it is working for Feb.
+This shows the date of the end of the week. The `ceiling_date` for week is the Sunday of the next week, so I'm subtracting one day to get the Saturday. At least that is how it is working for Feb.
 
 ```{r}
 test_feb %>% 

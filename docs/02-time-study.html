@@ -2880,15 +2880,15 @@ library(lubridate)</code></pre>
   count(week = floor_date(lab_date, &quot;week&quot;))</code></pre>
 <div data-pagedtable="false">
 <script data-pagedtable-source type="application/json">
-{"columns":[{"label":["week"],"name":[1],"type":["date"],"align":["right"]},{"label":["n"],"name":[2],"type":["int"],"align":["right"]}],"data":[{"1":"2020-02-02","2":"9"},{"1":"2020-02-09","2":"3"},{"1":"2020-02-16","2":"4"},{"1":"2020-02-23","2":"4"}],"options":{"columns":{"min":{},"max":[10]},"rows":{"min":[10],"max":[10]},"pages":{}}}
+{"columns":[{"label":[""],"name":["_rn_"],"type":[""],"align":["left"]},{"label":["week"],"name":[1],"type":["date"],"align":["right"]},{"label":["n"],"name":[2],"type":["int"],"align":["right"]}],"data":[{"1":"2020-02-02","2":"9","_rn_":"1"},{"1":"2020-02-09","2":"3","_rn_":"2"},{"1":"2020-02-16","2":"4","_rn_":"3"},{"1":"2020-02-23","2":"4","_rn_":"4"}],"options":{"columns":{"min":{},"max":[10]},"rows":{"min":[10],"max":[10]},"pages":{}}}
   </script>
 </div>
-<p>This shows the date of the end of the week. The <code>ceiling_date</code> for week is the Sunday of the next week, so I’m substracting one day to get the Saturday. At least that is how it is working for Feb.</p>
+<p>This shows the date of the end of the week. The <code>ceiling_date</code> for week is the Sunday of the next week, so I’m subtracting one day to get the Saturday. At least that is how it is working for Feb.</p>
 <pre class="r"><code>test_feb %&gt;% 
   count(week = ceiling_date(lab_date, &quot;week&quot;)-1)</code></pre>
 <div data-pagedtable="false">
 <script data-pagedtable-source type="application/json">
-{"columns":[{"label":["week"],"name":[1],"type":["date"],"align":["right"]},{"label":["n"],"name":[2],"type":["int"],"align":["right"]}],"data":[{"1":"2020-02-08","2":"9"},{"1":"2020-02-15","2":"3"},{"1":"2020-02-22","2":"4"},{"1":"2020-02-29","2":"4"}],"options":{"columns":{"min":{},"max":[10]},"rows":{"min":[10],"max":[10]},"pages":{}}}
+{"columns":[{"label":[""],"name":["_rn_"],"type":[""],"align":["left"]},{"label":["week"],"name":[1],"type":["date"],"align":["right"]},{"label":["n"],"name":[2],"type":["int"],"align":["right"]}],"data":[{"1":"2020-02-08","2":"9","_rn_":"1"},{"1":"2020-02-15","2":"3","_rn_":"2"},{"1":"2020-02-22","2":"4","_rn_":"3"},{"1":"2020-02-29","2":"4","_rn_":"4"}],"options":{"columns":{"min":{},"max":[10]},"rows":{"min":[10],"max":[10]},"pages":{}}}
   </script>
 </div>
 </div>
@@ -2910,7 +2910,7 @@ library(lubridate)</code></pre>
   count(week = ceiling_date(lab_date, &quot;week&quot;)-1)</code></pre>
 <div data-pagedtable="false">
 <script data-pagedtable-source type="application/json">
-{"columns":[{"label":["week"],"name":[1],"type":["date"],"align":["right"]},{"label":["n"],"name":[2],"type":["int"],"align":["right"]}],"data":[{"1":"2020-03-07","2":"8"},{"1":"2020-03-14","2":"22"},{"1":"2020-03-21","2":"4"}],"options":{"columns":{"min":{},"max":[10]},"rows":{"min":[10],"max":[10]},"pages":{}}}
+{"columns":[{"label":[""],"name":["_rn_"],"type":[""],"align":["left"]},{"label":["week"],"name":[1],"type":["date"],"align":["right"]},{"label":["n"],"name":[2],"type":["int"],"align":["right"]}],"data":[{"1":"2020-03-07","2":"8","_rn_":"1"},{"1":"2020-03-14","2":"22","_rn_":"2"},{"1":"2020-03-21","2":"4","_rn_":"3"}],"options":{"columns":{"min":{},"max":[10]},"rows":{"min":[10],"max":[10]},"pages":{}}}
   </script>
 </div>
 <p>tests the week enxing March 14.</p>

@@ -14,7 +14,7 @@ This notebook attempts to aggregate Riverside County, CA testing counts in a for
 
 ![San Diego aggregations](img/san-diego-data.png)
 
-It's likely that we'll change the data shape of the above data as well. For instance, it is not tidy to have separate colunns for the test result. There should be one column with the value of that result.
+It's likely that we'll change the data shape of the above data as well. For instance, it is not tidy to have separate columns for the test result. There should be one column with the value of that result.
 
 Here is what we will aim for with each data set:
 
@@ -83,5 +83,12 @@ riverside %>%
     lab_date == "2020-01-04"
   ) %>% 
   arrange(zipcode)
+```
+
+## Export the file
+
+```{r export}
+weekly_results %>%
+  write_csv("data-processed/riverside_weekly_results.csv")
 ```
 
